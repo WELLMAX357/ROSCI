@@ -7,17 +7,26 @@ on:
       - master
 
 jobs:
-  steps:
-  - name: Setup ROS 2
-    uses: ros-tooling/setup-ros@0.4.1
-  with:
-    required-ros-distributions: humble
-
-  - name: Run Tests
-    uses: ros-tooling/action-ros-ci@0.2.7
+  build-and-test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+      fail-fast: false
+    steps:
+    - name: Setup ROS 2
+      uses: ros-tooling/setup-ros@0.0.15
     with:
-      package-name: rosci
-      target-ros2-distro: humble
+        required-ros-distributions: humble
 
-  - name: Upload Logs
-    uses: actions/upload-artifact@v3.1.1
+    - name: Run Tests
+      uses: ros-tooling/action-ros-ci@0.0.13
+      with:
+        package-name: rosci
+
+    - name: Upload Logs
+      uses: actions/upload-artifact@v1
+      with:
+        name: colcon-logs
+        path: ros_ws/log
+      if: always()
