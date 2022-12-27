@@ -1,4 +1,4 @@
-name: format
+name: clang-format
 
 on:
   pull_request:
@@ -21,7 +21,6 @@ jobs:
     
     - name: Apply formatter
       run: |
-        clang-format -i $(find . -name "*.h" -or -name "*.c")
         clang-format -i $(find ./src/ -name "*.h" -or -name "*.hpp" -or -name "*.c" -or -name "*.cpp")
         clang-format -i $(find ./include/ -name "*.h" -or -name "*.hpp" -or -name "*.c" -or -name "*.cpp")
 
