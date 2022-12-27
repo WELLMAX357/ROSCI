@@ -22,7 +22,9 @@ jobs:
     - name: Apply formatter
       run: |
         clang-format -i $(find . -name "*.h" -or -name "*.c")
+        clang-format -i $(find ./src/ -name "*.h" -or -name "*.hpp" -or -name "*.c" -or -name "*.cpp")
+        clang-format -i $(find ./include/ -name "*.h" -or -name "*.hpp" -or -name "*.c" -or -name "*.cpp")
 
     - uses: stefanzweifel/git-auto-commit-action@v4
       with:
-        commit_message: Apply clang-format
+        commit_message: :art: Apply clang-format
