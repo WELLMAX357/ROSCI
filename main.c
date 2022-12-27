@@ -1,11 +1,12 @@
 #include <iostream>
 
-int main() {
+int main()
+{
   // あえてぐちゃぐちゃな状態でコミット
 
   std::cout
 
-      << "CI_Practice"
+    << "CI_Practice"
 
-      << std::endl;
+    << std::endl;
 }
