@@ -7,18 +7,17 @@ on:
       - master
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Setup ROS 2
-      uses: ros-tooling/setup-ros@0.4.1
+  steps:
+  - name: Setup ROS 2
+    uses: ros-tooling/setup-ros@0.4.1
+  with:
+    required-ros-distributions: humble
+
+  - name: Run Tests
+    uses: ros-tooling/action-ros-ci@0.2.7
     with:
-      required-ros-distributions: humble
+      package-name: rosci
+      target-ros2-distro: humble
 
-    - name: Run Tests
-      uses: ros-tooling/action-ros-ci@0.2.7
-      with:
-        package-name: rosci
-
-    - name: Upload Logs
-      uses: actions/upload-artifact@v3.1.1
+  - name: Upload Logs
+    uses: actions/upload-artifact@v3.1.1
