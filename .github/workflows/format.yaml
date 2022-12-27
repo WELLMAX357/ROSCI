@@ -1,14 +1,14 @@
 name: format
 
 on:
-  push:
-    branches: [ master ]
   pull_request:
-    branches: [ master ]
+  push:
+    branches:
+      - main
 
 jobs:
   format:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
       with:
@@ -21,7 +21,6 @@ jobs:
     
     - name: Apply formatter
       run: |
-        clang-format -i $(find ./src -name "*.h" -or -name "*.c" -or -name "*.hpp" -or -name "*.cpp")
         clang-format -i $(find . -name "*.h" -or -name "*.c")
 
     - uses: stefanzweifel/git-auto-commit-action@v4
