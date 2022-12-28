@@ -9,8 +9,6 @@ on:
 jobs:
   CI:
     runs-on: ubuntu-latest
-    strategy:
-      
     steps:
     - name: Setup ROS 2
       uses: ros-tooling/setup-ros@v0.4
