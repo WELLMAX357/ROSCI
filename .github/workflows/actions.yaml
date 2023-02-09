@@ -15,11 +15,11 @@ jobs:
       with:
         required-ros-distributions: humble
 
-    - name: submodule
-      uses: actions/checkout@v2
-      with: 
-        submodule: true
-        token: ${{ secrets.PERSONAL_TOKEN }}
+    # - name: submodule
+    #   uses: actions/checkout@v2
+    #   with: 
+    #     submodule: true
+    #     token: ${{ secrets.PERSONAL_TOKEN }}
 
     - name: Build Tests
       uses: ros-tooling/action-ros-ci@v0.2
@@ -28,14 +28,6 @@ jobs:
         target-ros2-distro: humble
         skip-tests: true
         import-token: ${{ secrets.PERSONAL_TOKEN }}
-        
-    # - name: Upload Logs
-    #   uses: actions/upload-artifact@v1
-    #   with:
-    #     name: colcon-logs
-    #     path: ${{ steps.action_ros_ci_step.outputs.ros-workspace-directory-name }}/log
-    #   if: always()
-
 
   Format:
     runs-on: ubuntu-latest

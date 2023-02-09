@@ -1,3 +1,0 @@
-[submodule "ros2_can_toolbox"]
-	path = ros2_can_toolbox
-	url = https://github.com/ForteFibre/ros2_can_toolbox.git
