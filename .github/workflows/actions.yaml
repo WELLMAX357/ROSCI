@@ -15,6 +15,12 @@ jobs:
       with:
         required-ros-distributions: humble
 
+    - name: submodule
+      uses: actions/checkout@v2
+      with: 
+        submodule: true
+        token: ${{ secrets.PERSONAL_TOKEN }}
+
     - name: Build Tests
       uses: ros-tooling/action-ros-ci@v0.2
       with:
