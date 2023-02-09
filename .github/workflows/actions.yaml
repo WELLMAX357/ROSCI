@@ -27,6 +27,7 @@ jobs:
         package-name: rosci
         target-ros2-distro: humble
         skip-tests: true
+        import-token: ${{ secrets.PERSONAL_TOKEN }}
         
     # - name: Upload Logs
     #   uses: actions/upload-artifact@v1
