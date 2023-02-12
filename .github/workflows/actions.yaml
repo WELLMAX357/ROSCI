@@ -20,7 +20,6 @@ jobs:
       with:
         package-name: rosci
         target-ros2-distro: humble
-        vcs-repo-file-url: https://github.com/ForteFibre/ros2_can_toolbox
         import-token: ${{ secrets.PERSONAL_TOKEN }}
         skip-tests: true
 
